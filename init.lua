@@ -15,10 +15,19 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', '<leader>vrr', function() vim.lsp.buf.references() end, opts)
     vim.keymap.set('n', '<leader>vrn', function() vim.lsp.buf.rename() end, opts)
     vim.keymap.set('i', '<C-h>', function() vim.lsp.buf.signature_help() end, opts)
+
+    vim.diagnostic.config({
+        update_in_insert = true,
+    })
   end,
 })
 
 local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
+
+vim.opt.expandtab = true
+vim.opt.shiftwidth = 4
+vim.opt.tabstop = 4
+vim.opt.formatoptions = 'croql'
 
 require('mason').setup({})
 require('mason-lspconfig').setup({
