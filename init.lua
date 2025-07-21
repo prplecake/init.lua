@@ -29,6 +29,10 @@ vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
 vim.opt.formatoptions = 'croql'
 
+vim.opt.number = true
+vim.opt.relativenumber = true
+vim.o.statuscolumn = "%s %l %r"
+
 require('mason').setup({})
 require('mason-lspconfig').setup({
   ensure_installed = {'ts_ls', 'rust_analyzer'},
